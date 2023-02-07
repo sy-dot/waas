@@ -1,0 +1,70 @@
+{
+  "name": "waas",
+  "version": "1.0.0",
+  "description": "...",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "distwin": "electron-builder build --win"
+  },
+  "repository": "https://github.com/",
+  "author": "87SQUAD",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^22.2.0",
+    "electron-builder": "^23.6.0"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0",
+    "internet-available": "^1.0.0",
+    "jquery": "^3.2.1",
+    "jsdom": "^9.12.0",
+    "node-notifier": "^10.0.1"
+  },
+  "build": {
+    "appId": "com.87SQUAD.waas",
+    "productName": "Windows Assistant",
+    "compression": "maximum",
+    "win": {
+      "target": "nsis",
+      "requestedExecutionLevel": "requireAdministrator",
+      "icon": "icons/app-icon.png"
+    },
+    "nsis": {
+      "installerIcon": "icons/installer-icon.ico",
+      "uninstallerIcon": "icons/uninstaller-icon.ico",
+      "unicode": true,
+      "guid": "d5f6e0b2-38c0-4579-aeca-d01d237a079c",
+      "deleteAppDataOnUninstall": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "allowElevation": true,
+      "runAfterFinish": true,
+      "menuCategory": true,
+      "oneClick": false,
+      "perMachine": false,
+      "packElevateHelper": true,
+      "displayLanguageSelector": false,
+      "language": "1049",
+      "license": "installer_license.html"
+    },
+    "nsisWeb": {
+      "installerIcon": "icons/installer-icon.ico",
+      "uninstallerIcon": "icons/uninstaller-icon.ico",
+      "unicode": true,
+      "guid": "d5f6e0b2-38c0-4579-aeca-d01d237a079c",
+      "deleteAppDataOnUninstall": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "allowElevation": true,
+      "runAfterFinish": true,
+      "menuCategory": true,
+      "oneClick": false,
+      "perMachine": false,
+      "packElevateHelper": true,
+      "displayLanguageSelector": false,
+      "language": "1049",
+      "license": "installer_license.html"
+    }
+  }
+}

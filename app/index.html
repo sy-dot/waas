@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="title">Windows Assistant</title>
+
+  <link rel="stylesheet" href="src/styles/style.min.css">
+
+  <script src="src/js/init.js" async></script>
+  <script src="src/js/menuHandler.js" async></script>
+
+  <script src="src/js/app.js" defer></script>
+
+  <!-- === AOS - ANIMATED SCROLL === -->
+  <link rel="stylesheet" href="src/vendor/aos/aos.min.css">
+  <script src="src/vendor/aos/aos.min.js" defer></script>
+  <script src="src/vendor/aos/aosInit.js" defer></script>
+
+  <!-- === FONTAWESOME ICONS === -->
+  <link rel="stylesheet" href="src/vendor/fontawesome/all.min.css" defer>
+
+</head>
+
+<body>
+
+  <div id="nav_blank"></div>
+  <div id="nav">
+    <div class="nav-menu-btn"
+      onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+      aria-label="Main Menu">
+      <svg viewBox="0 0 100 100">
+        <path class="nav-menu-btn__line"
+          d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+        <path class="nav-menu-btn__line" d="M 20,50 H 80" />
+        <path class="nav-menu-btn__line"
+          d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+      </svg>
+    </div>
+    <div id="showTitle" style="line-height: 30px;"></div>
+    <div id="togglers" style="line-height: 30px;">
+      <div id="minimizeBtn"><span>-</span></div>
+      <div id="maximizeBtn"><span></span></div>
+      <div id="closeBtn"><span>&times;</span></div>
+    </div>
+  </div>
+
+  <div id="wrapper">
+    <div id="menu" class="menu menu_disabled"></div>
+
+    <div id="main-area">
+
+      <div data-aos="fade" class="content-wrapper">
+        <section class="home">
+          <div class="container">
+            <div class="row">
+
+              <!-- <h1><a href="pages/go-to-sleep/index.html">Go to Sleep</a></h1>
+            <h1><a href="#" onclick="ShowSecondsInSystemClock1()">Вкл. секунды</a></h1>
+            <h1><a href="#" onclick="ShowSecondsInSystemClock0()">Выкл. секунды</a></h1>
+            <h1><a href="#" onclick="InstallVisualCPlusPlus()">Установить Visual C++</a></h1>
+            <h1><a href="#" onclick="InstallDirectX()">Установить DirectX</a></h1>
+            <h3><a class="install-btn" href="#">Установить</a></h3> -->
+
+
+              <p>
+                <a data-aos="fade-right" href="pages/runtime-components/index.html" class="btn">
+                  <i class="fa-duotone fa-gear"></i>
+                  Runtime Components
+                </a>
+              </p>
+
+              <p>
+                <a data-aos="fade-right" href="#" class="btn">
+                  <i class="fa-duotone fa-wrench"></i>
+                  Твики
+                </a>
+              </p>
+
+              <p>
+                <a data-aos="fade-left" href="pages/act/index.html" class="btn">
+                  <i class="fa-brands fa-windows"></i>
+                  Активация
+                </a>
+              </p>
+
+              <p>
+                <a data-aos="fade-left" href="pages/go-to-sleep/index.html" class="btn">
+                  <i class="fa-duotone fa-power-off"></i>
+                  Таймер
+                </a>
+              </p>
+
+
+              <!-- <p>
+                <a href="#" class="btn" onclick="ActivateOffice()">
+                  <i class="fa-brands fa-windows"></i>
+                  Активация офиса
+                </a>
+              </p>
+
+              <p>
+                <a href="#" class="btn" onclick="ActivateWindows()">
+                  <i class="fa-brands fa-windows"></i>
+                  Активация винды
+                </a>
+              </p> -->
+
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="copyright">
+        <div>
+          <p>
+            Сделано с <i style="color:rgb(199, 0, 0);" class="fa-solid fa-heart"></i> by <a href="https://8713.su/"
+              target="_blank" class="underline">87SQUAD</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="appVer">
+        <p>
+          Версия:
+          <script>
+            var ver = require('../package.json');
+            document.write(ver.version);
+          </script>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    $("#menu").load("parts/menu.html");
+  </script>
+
+</body>
+
+</html>

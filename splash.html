@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="EZ">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пожалуйста, подождите...</title>
+</head>
+
+<body>
+
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      overflow: hidden;
+      -webkit-app-region: no-drag;
+      -webkit-user-select: none;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      animation: FadeIn 1s;
+    }
+  </style>
+
+  <style>
+    #background {
+      -webkit-app-region: drag;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      z-index: -9999;
+      border-radius: 20px;
+      background: linear-gradient(-45deg, #C0C0C0, #004e92, #243B55, #000428, #141E30);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+
+    .preloader {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+        background-size: 400%;
+      }
+
+      25% {
+        background-position: 100% 0%;
+        background-size: 800%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+        background-size: 1000%;
+      }
+
+      80% {
+        background-position: 50% 50%;
+        background-size: 2000%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+        background-size: 400%;
+      }
+    }
+
+    @keyframes FadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+
+  <div id="background"></div>
+
+  <!-- === PRELOADER === -->
+  <section id="preloader">
+    <div class="container">
+      <div class="row">
+        <h1>Пожалуйста, подождите...</h1>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

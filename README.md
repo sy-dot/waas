@@ -1,2 +1,2 @@
-# waas
- Windows Assistant (WAAS)
+# WAAS
+ Windows Assistant

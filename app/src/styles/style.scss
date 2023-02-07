@@ -1,0 +1,214 @@
+////// INIT //////
+
+@import 'reset.min.css';
+
+//// MIXIN's ////
+@import 'mixins/colors';
+@import 'mixins/fonts';
+@import 'mixins/mptb';
+
+//// MAIN STYLE's ////
+html {
+  scroll-behavior: smooth;
+  -webkit-user-select: none;
+}
+
+body {
+  color: #000;
+  font-family: $main-font;
+  background: #d2d2d2;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+#wrapper {
+  animation: pageTran ease 1s;
+}
+
+#main-area {
+  margin-top: 27px;
+}
+
+a,
+a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a {
+  transition: .2s;
+}
+
+.underline {
+  text-decoration: none;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    bottom: -2px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #000;
+  }
+
+  &.white::after {
+    background: #fff;
+  }
+
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.home {
+  // margin-top: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  height: 85vh;
+  font-weight: 500;
+
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+
+  & p {
+    display: inline;
+  }
+
+  & .btn {
+    margin: 10px;
+  }
+
+}
+
+.gts-page {
+  background: linear-gradient(90deg, #004e92 0%, #243B55 35%, #000428 63%, #141E30 100%);
+
+  & .backBtn {
+    margin-top: 11px;
+  }
+}
+
+.default-page {
+  // margin-top: 10px;
+  padding: 0 20px 0 20px;
+  border-radius: 10px;
+  width: 100%;
+  // height: 85vh;
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  // align-items: center;
+  // text-align: center;
+
+  & .container {
+    min-width: 100%;
+  }
+
+  &__block {
+    margin-top: 20px;
+    background: #ffffff9a;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #fff;
+
+    & h2 {
+      margin-bottom: 10px;
+    }
+
+    & p {
+      line-height: 1.5;
+    }
+  }
+
+  & .notice {
+    margin-top: 20px;
+  }
+
+  @media screen and (min-width: 650px) {
+    width: 90%
+  }
+
+  @media screen and (min-width: 800px) {
+    width: 80%
+  }
+
+  @media screen and (min-width: 1000px) {
+    width: 70%
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 60%
+  }
+
+  @media screen and (min-width: 1400px) {
+    width: 50%
+  }
+
+  @media screen and (min-width: 1600px) {
+    width: 45%
+  }
+}
+
+.no-main-page .backBtn,
+.no-main-page .backBackBtn {
+  position: relative;
+  width: 100vw;
+  margin-left: 0;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.copyright {
+  position: relative;
+  font-family: $second-font;
+  font-weight: 700;
+  width: 100vw;
+  z-index: -9999;
+  display: flex;
+  bottom: 10px;
+
+  // font-weight: bold;
+
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.appVer {
+  position: relative;
+  font-family: $second-font;
+  z-index: -9999;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+
+  font-size: 10px;
+  bottom: -6.5vh;
+}
+
+//// PART's ////
+@import 'parts/menu';
+@import 'parts/buttons';
+@import 'parts/notice';
+@import 'parts/animation';
+@import 'parts/scrollbar';
+
+//// FEATURE's ////

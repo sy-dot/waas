@@ -1,0 +1,361 @@
+#nav {
+  font-family: $main-font;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  z-index: 9000;
+  color: $nav-color;
+
+  & .nav-menu-btn {
+    $width: 28px;
+    display: inline-flex;
+    float: left;
+    width: $width;
+    height: $width;
+    -webkit-app-region: no-drag;
+    cursor: pointer;
+
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+
+    // ANIM MENU BAR
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    outline: none;
+    margin-right: 5px;
+
+    & svg {
+      $size: 25px;
+      width: $size;
+      height: $size;
+    }
+
+    &__line {
+      $stroke-width: 6;
+      fill: none;
+      stroke: #000;
+      stroke-width: 3;
+      transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:nth-child(1) {
+        stroke-dasharray: 60 207;
+      }
+
+      &:nth-child(2) {
+        stroke-dasharray: 60 60;
+      }
+
+      &:nth-child(3) {
+        stroke-dasharray: 60 207;
+      }
+    }
+
+    &.opened {
+      & .nav-menu-btn__line:nth-child(1) {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+        stroke-width: 10;
+      }
+
+      & .nav-menu-btn__line:nth-child(2) {
+        stroke-dasharray: 1 60;
+        stroke-dashoffset: -30;
+      }
+
+      & .nav-menu-btn__line:nth-child(3) {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+        stroke-width: 10;
+      }
+    }
+  }
+}
+
+#nav_blank {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  background-color: $nav-back;
+  z-index: 8999;
+}
+
+#togglers>#minimizeBtn:hover {
+  background: $nav-togglers-hover;
+}
+
+#togglers>#closeBtn:hover {
+  color: $nav-x-hover;
+  background: $nav-x-hover-back;
+}
+
+#togglers {
+  display: block;
+  float: right;
+  width: 150px;
+  height: 100%;
+  text-align: center;
+  -webkit-app-region: no-drag;
+  font-weight: bold;
+  background-color: $nav-togglers-back;
+}
+
+#togglers>#minimizeBtn,
+#togglers>#maximizeBtn,
+#togglers>#closeBtn {
+  width: 33.32%;
+  height: 100%;
+  float: left;
+  margin: 0;
+  cursor: default;
+  transition: all ease-in-out .2s;
+}
+
+#togglers>#maximizeBtn>span {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+  transition: all ease-in-out .2s;
+}
+
+#togglers>#maximizeBtn>span::before,
+#togglers>#maximizeBtn>span::after {
+  content: '';
+  width: 15%;
+  height: 21%;
+  position: absolute;
+  display: block;
+  background-color: transparent;
+  transition: all ease-in-out .2s;
+}
+
+#togglers>#maximizeBtn>span::before {
+  top: 30%;
+  left: 35%;
+  z-index: 2;
+}
+
+#togglers>#maximizeBtn>span::before,
+#togglers>#maximize>span::after {
+  border: 2px solid $nav-color;
+  ;
+}
+
+#togglers>#maximizeBtn:hover {
+  background-color: $nav-togglers-hover;
+}
+
+#togglers>#maximizeBtn>span::after {
+  top: 25%;
+  left: 45%;
+}
+
+#showTitle {
+  position: relative;
+  display: inline-flex;
+  width: 30%;
+  justify-content: start;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 400;
+  animation: TopTo .3s;
+  transition: all 2s;
+}
+
+
+/* === SIDE MENU === */
+#wrapper .menu * {
+  font-family: $main-font;
+}
+
+#wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $side-menu-color;
+  background: $side-menu-back;
+  transition: 0.5s;
+  transform: translateX(-100%);
+}
+
+.main-area_active {
+  transform: translateX(100%);
+}
+
+.menu_disabled {
+  display: none;
+}
+
+.menu_active {
+  transform: translateX(0%);
+}
+
+.menu-list {
+  position: relative;
+  display: flex;
+  width: 90%;
+  // left: 50px;
+  // justify-content: space-around;
+  // align-items: center;
+  // height: 50%;
+  flex-direction: column;
+  // padding: 20px;
+  font-size: 20px;
+
+  @media screen and (min-width: 1000px) {
+    width: 70%
+  }
+}
+
+.menu-list li {
+  margin-bottom: 1em;
+}
+
+.menu-list hr {
+  margin-bottom: 1em;
+}
+
+.menu-list * {
+  line-height: 50px;
+}
+
+#main-area {
+  transition: 0.5s;
+  position: relative;
+  z-index: 0;
+}
+
+
+
+
+
+
+
+//////// TEST
+
+
+// .nav-menu-btn {
+//   background-color: transparent;
+//   border: none;
+//   cursor: pointer;
+//   padding: 0;
+//   outline: none;
+
+//   display: inline-flex;
+//   float: left;
+//   // width: 30px;
+//   // height: 30px;
+//   -webkit-app-region: no-drag;
+//   cursor: pointer;
+
+//   justify-content: center;
+//   justify-items: center;
+//   align-items: center;
+
+//   margin-right: 5px;
+
+//   & svg {
+//     width: 30px;
+//     height: 30px;
+//   }
+// }
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:nth-child(1) {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+
+  &:nth-child(2) {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+
+  &:nth-child(3) {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+}
+
+.opened {
+  & .line:nth-child(1) {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+
+  & .line:nth-child(2) {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+
+  & .line:nth-child(3) {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+}
+
+// .line1 {
+//   stroke-dasharray: 60 207;
+//   stroke-width: 6;
+// }
+
+// .line2 {
+//   stroke-dasharray: 60 60;
+//   stroke-width: 6;
+// }
+
+// .line3 {
+//   stroke-dasharray: 60 207;
+//   stroke-width: 6;
+// }
+
+// .opened .line1 {
+//   stroke-dasharray: 90 207;
+//   stroke-dashoffset: -134;
+//   stroke-width: 6;
+// }
+
+// .opened .line2 {
+//   stroke-dasharray: 1 60;
+//   stroke-dashoffset: -30;
+//   stroke-width: 6;
+// }
+
+// .opened .line3 {
+//   stroke-dasharray: 90 207;
+//   stroke-dashoffset: -134;
+//   stroke-width: 6;
+// }

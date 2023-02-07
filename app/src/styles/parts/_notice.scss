@@ -1,0 +1,44 @@
+.notice {
+  padding: 20px 10px 20px 70px;
+  // margin: 1.5rem 0;
+  border-radius: 6px;
+  font-weight: 400;
+
+  &.info {
+    background: #bde5f8 url('../icons/notice/info.svg') no-repeat 15px center;
+    color: #084298;
+
+    & .underline::after {
+      background: #084298;
+    }
+  }
+
+  &.suc {
+    // background: rgba(0, 128, 0, .5);
+    background: #dff2bf url('../icons/notice/success.svg') no-repeat 15px center;
+    color: #0f5132;
+
+    & .underline::after {
+      background: #0f5132;
+    }
+  }
+
+  &.danger {
+    // background: rgba(255, 166, 0, .5);
+    background: #feefb3 url('../icons/notice/warning.svg') no-repeat 15px center;
+    color: #5f5000;
+
+    & .underline::after {
+      background: #5f5000;
+    }
+  }
+
+  &.error {
+    background: #ffccba url('../icons/notice/error.svg') no-repeat 15px center;
+    color: #842029;
+
+    & .underline::after {
+      background: #842029;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+.btn {
+  display: inline-block;
+  color: #fff;
+  background: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &-hover,
+  &:hover {
+    background: rgba(0, 0, 0, 0.695);
+  }
+
+  &-active,
+  &:active {
+    background: rgba(0, 0, 0, 0.695);
+  }
+
+  & i {
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+
+  &.apply {
+    background: $accent-color-2;
+    color: #d4fdf2;
+    $applied-color: #11a27c;
+
+    &:hover {
+      background: $applied-color;
+    }
+
+    &__active {
+      background: $applied-color;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}
+
+.backBtn {
+  position: fixed;
+  width: 100vw;
+  margin-left: 0;
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  z-index: 1;
+
+  &__back {
+    color: #000;
+    background: #ffffff;
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: .2s;
+
+    &:hover {
+      background: #ececec;
+    }
+  }
+}
+
+.backBackBtn {
+  $backBackBtn-innerSpacing: 15px;
+  position: fixed;
+  width: 100vw;
+  margin-left: 0;
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  z-index: 1;
+
+  color: #000;
+  font-weight: bold;
+
+  &__back,
+  &__index {
+    background: #ffffff;
+    padding: 10px 5px 10px 5px;
+  }
+
+  &__back {
+    border-radius: 20px 0 0 20px;
+    border-right: 1px solid #000;
+    padding-right: $backBackBtn-innerSpacing;
+
+    & i {
+      padding-left: 10px;
+      padding-right: 5px;
+    }
+  }
+
+  &__index {
+    border-radius: 0 20px 20px 0;
+    border-left: 1px solid #000;
+    padding-left: $backBackBtn-innerSpacing;
+
+    & i {
+      padding-right: 10px;
+      padding-left: 5px;
+    }
+  }
+}
