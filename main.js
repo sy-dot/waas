@@ -124,7 +124,7 @@ if (!gotTheLock) {
     }
   })
     
-  // CСоздать окно
+  // Создать окно
   app.whenReady().then(() => {
     createWindow()
 
