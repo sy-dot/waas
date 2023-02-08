@@ -1,11 +1,18 @@
 const { app, BrowserWindow, ipcMain, shell } = require('electron');
+const { autoUpdater, AppUpdater } = require('electron-updater')
 const { getWindowSettings, saveBounds } = require('./settings');
+
+
 
 const path = require('path');
 const url = require('url');
 const ipc = ipcMain
+const gotTheLock = app.requestSingleInstanceLock()
 
 let win;
+
+autoUpdater.autoDownload = true;
+autoUpdater.autoInstallOnAppQuit = true;
 
 function createWindow() {
 
@@ -34,6 +41,7 @@ function createWindow() {
     }
   });
 
+
   win.on('resized', () => saveBounds(win.getSize()))
 
   win.loadFile('app/index.html') // Загрузить файл при открытии
@@ -43,8 +51,8 @@ function createWindow() {
 
   // Открытие линков _blank в браузере по умолчанию
   win.webContents.setWindowOpenHandler((details) => {
-    shell.openExternal(details.url); // Open URL in user's browser.
-    return { action: "deny" }; // Prevent the app from opening the URL.
+    shell.openExternal(details.url); // Открыть URL в браузере по умолчанию.
+    return { action: "deny" }; // Запретите открывать URL-адрес в приложении.
   })
 
 
@@ -104,13 +112,29 @@ function createWindow() {
 
 }
 
-app.whenReady().then(() => {
-  createWindow()
 
-  app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    // Если запускается второй экземпляр - фокусировка на первом
+    if (win) {
+      if (win.isMinimized()) win.restore()
+      win.focus()
+    }
   })
-})
+    
+  // CСоздать окно
+  app.whenReady().then(() => {
+    createWindow()
+
+    app.on('activate', function () {
+      if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    })
+
+    autoUpdater.checkForUpdates();
+  })
+}
 
 
 // Если все окна закрыты - закрыть приложение, малое отношение к виндовс, но имеет к маку

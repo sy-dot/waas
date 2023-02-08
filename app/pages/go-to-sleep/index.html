@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="title">Go to Sleep</title>
+  <title id="title">Автовыключение ПК</title>
 
   <link rel="stylesheet" href="../../src/styles/style.min.css">
 
@@ -14,7 +14,7 @@
   <script src="../../src/js/app.js" defer></script>
 
   <!-- === Go to Sleep CSS === -->
-  <link href="main.min.css" rel="stylesheet">
+  <link href="gts.min.css" rel="stylesheet">
 
   <!-- === AOS - ANIMATED SCROLL === -->
   <link rel="stylesheet" href="../../src/vendor/aos/aos.min.css">
@@ -40,7 +40,7 @@
           d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
       </svg>
     </div>
-    <div id="showTitle" style="line-height: 30px;"></div>
+    <div id="showTitle" class="display__time-title" style="line-height: 30px;"></div>
     <div id="togglers" style="line-height: 30px;">
       <div id="minimizeBtn"><span>-</span></div>
       <div id="maximizeBtn"><span></span></div>
@@ -65,7 +65,9 @@
       <!-- === APP HERE === -->
       <div data-aos="fade" class="container">
         <div class="card">
-          <img data-aos="fade-down" data-aos-delay="400" src="../../assets/img/go-to-sleep/icon.png" alt="">
+          <div data-aos="fade-down" data-aos-delay="500">
+            <img src="../../assets/img/go-to-sleep/icon.png" alt="">
+          </div>
           <h2 data-aos="fade-down" data-aos-delay="400" class="display__time-left">--:--</h2>
 
           <div data-aos="fade-right" class="timer_hr">
@@ -95,8 +97,11 @@
             </a>
           </div>
 
+          <!-- <p data-aos="fade-up" data-aos-delay="300">
+            asdasdasdadsfsopdf;sjdfiospj0450ghjidhjfgldjfgkldflkgdfgdfgdfg
+          </p> -->
           <p data-aos="fade-up" data-aos-delay="300">
-            Что-бы отменить автовыключение, просто закройте приложение или нажмите <span
+            Для отмены автовыключение, просто закройте приложение или нажмите <span
               style="font-weight: bold;">НАЗАД</span>
           </p>
         </div>

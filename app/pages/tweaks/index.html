@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="title">Твики</title>
+
+  <link rel="stylesheet" href="../../src/styles/style.min.css">
+
+  <script src="../../src/js/init.js" async></script>
+  <script src="../../src/js/menuHandler.js" async></script>
+
+  <script src="../../src/js/app.js" defer></script>
+
+  <!-- === AOS - ANIMATED SCROLL === -->
+  <link rel="stylesheet" href="../../src/vendor/aos/aos.min.css">
+  <script src="../../src/vendor/aos/aos.min.js" defer></script>
+  <script src="../../src/vendor/aos/aosInit.js" defer></script>
+
+  <!-- === FONTAWESOME ICONS === -->
+  <link rel="stylesheet" href="../../src/vendor/fontawesome/all.min.css" defer>
+</head>
+
+<body class="no-main-page">
+
+  <div id="nav_blank"></div>
+  <div id="nav">
+    <div class="nav-menu-btn"
+      onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+      aria-label="Main Menu">
+      <svg viewBox="0 0 100 100">
+        <path class="nav-menu-btn__line"
+          d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+        <path class="nav-menu-btn__line" d="M 20,50 H 80" />
+        <path class="nav-menu-btn__line"
+          d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+      </svg>
+    </div>
+    <div id="showTitle" style="line-height: 30px;"></div>
+    <div id="togglers" style="line-height: 30px;">
+      <div id="minimizeBtn"><span>-</span></div>
+      <div id="maximizeBtn"><span></span></div>
+      <div id="closeBtn"><span>&times;</span></div>
+    </div>
+  </div>
+
+  <div id="wrapper">
+    <div id="menu" class="menu menu_disabled"></div>
+
+    <div id="main-area">
+
+      <div class="backBtn">
+        <a href="../../index.html">
+          <div class="backBtn__back">
+            <i class="fa-solid fa-caret-left"></i>
+            <span>НАЗАД</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="content-wrapper">
+        <section class="default-page">
+          <div class="container">
+            <div class="row">
+
+              <div data-aos="fade-right">
+                <div class="default-page__block">
+                  <div class="category">
+                    <span class="category__item">Время</span>
+                  </div>
+
+                  <h2>Включить секунды</h2>
+
+                  <p class="mb2">
+                    Включает секунды в панели задач.
+                  </p>
+                  <p class="mb3">
+                    Панель задач > Время > ЧЧ:ММ:СС.
+                  </p>
+
+                  <a class="btn action apply" onclick="ShowSecondsInSystemClock1()"></a>
+                  <a class="btn action unapply" onclick="ShowSecondsInSystemClock0()"></a>
+                </div>
+              </div>
+
+              <div data-aos="fade-right">
+                <div class="default-page__block">
+                  <div class="category">
+                    <span class="category__item">Схема питания</span>
+                  </div>
+
+                  <h2>Макс. производительность</h2>
+
+                  <p class="mb2">
+                    Добавляет схему питания: <br> «Максимальная производительность».
+                  </p>
+
+                  <a class="btn action apply" onclick="PowerSchemeHighPerformance()"></a>
+                </div>
+              </div>
+
+              <div data-aos="fade-right">
+                <div class="default-page__block">
+                  <div class="category">
+                    <span class="category__item">Система</span>
+                  </div>
+
+                  <h2>Отключить UAC</h2>
+
+                  <p class="mb2">
+                    Отключение контроля учетных записей.
+                  </p>
+
+                  <p class="mb2">
+                    Больше не будет запрашивать подтверждение действий, требующих прав администратора
+                  </p>
+
+                  <a class="btn action apply" onclick="DisableUAC()"></a>
+                  <a class="btn action unapply" onclick="EnableUAC()"></a>
+                </div>
+              </div>
+
+              <div data-aos="fade-right">
+                <div class="default-page__block">
+                  <div class="category">
+                    <span class="category__item">Система</span>
+                  </div>
+
+                  <h2>Отключить SmartScreen</h2>
+
+                  <p class="mb2">
+                    «SmartScreen» - перед запуском файла проверяет его, если он заражен или кажется небезопасным,
+                    предупреждает.
+                  </p>
+
+                  <a class="btn action apply" onclick="DisableSmartScreen()"></a>
+                  <a class="btn action unapply" onclick="EnableSmartScreen()"></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    $("#menu").load("../../parts/menu.html");
+  </script>
+
+</body>
+
+</html>

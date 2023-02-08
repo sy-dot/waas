@@ -1,6 +1,6 @@
 $main-font: 'Roboto', sans-serif;
+$mono-font: 'Roboto Mono', monospace;
 $second-font: 'Unbounded', sans-serif;
-// $main-font-mono: 'Roboto Mono', monospace;
 
 //// ROBOTO ////
 // THIN
@@ -138,6 +138,15 @@ $second-font: 'Unbounded', sans-serif;
   src: url("../fonts/RobotoWOFF2/Roboto-BlackItalic.woff2") format("woff2");
   font-style: italic;
   font-weight: 900;
+  font-display: swap;
+}
+
+
+//// ROBOTO MONO ////
+@font-face {
+  font-family: "Roboto Mono", monospace;
+  src: url("../fonts/RobotoMono-Light.woff2") format("woff2");
+  font-style: normal;
   font-display: swap;
 }
 

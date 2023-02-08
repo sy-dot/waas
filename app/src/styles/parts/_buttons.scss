@@ -6,12 +6,10 @@
   border-radius: 6px;
   cursor: pointer;
 
-  &-hover,
   &:hover {
     background: rgba(0, 0, 0, 0.695);
   }
 
-  &-active,
   &:active {
     background: rgba(0, 0, 0, 0.695);
   }
@@ -21,20 +19,30 @@
     margin-right: 5px;
   }
 
-
-  &.apply {
-    background: $accent-color-2;
-    color: #d4fdf2;
-    $applied-color: #11a27c;
+  &.action {
+    background: #a4a4a4;
+    color: #fff;
 
     &:hover {
-      background: $applied-color;
+      background: #11a27c;
+    }
+
+    &:active {
+      background: #0d7b5d;
     }
 
     &__active {
-      background: $applied-color;
+      background: #127e61;
       cursor: default;
       pointer-events: none;
+    }
+
+    &.red:hover {
+      background: rgb(189, 0, 0);
+    }
+
+    &.red:active {
+      background: rgb(147, 0, 0);
     }
   }
 }

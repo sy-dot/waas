@@ -1,0 +1,250 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  -webkit-user-select: none;
+  overflow: hidden;
+}
+
+//// ROBOTO ////
+// THIN
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Thin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-ThinItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+}
+
+// LIGHTER
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Light.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-LightItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Light.woff2") format("woff2");
+  font-style: normal;
+  font-weight: lighter;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-LightItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: lighter;
+  font-display: swap;
+}
+
+// REGULAR
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Regular.woff2") format("woff2");
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Regular.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+// MEDIUM
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-MediumItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}
+
+// BOLD
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-BoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-BoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
+// BLACK
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-Black.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../src/fonts/RobotoWOFF2/Roboto-BlackItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+}
+
+/* === TIMER === */
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 90%;
+  max-width: 440px;
+  color: #fff;
+  text-align: center;
+  padding: 50px 35px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+
+  & img {
+    width: 140px;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+    padding: 10px;
+    border-radius: 100%;
+  }
+
+  h2 {
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 20px;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+  }
+
+  & p {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 16px;
+    width: 10px;
+    font-size: 18px;
+    line-height: 25px;
+    margin: 10px auto;
+    min-width: 330px;
+    margin-top: 40px;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+  }
+
+  & .links {
+    font-size: 20px;
+    margin-top: 40px;
+  }
+
+  & .c-timer-btn-preset {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 50px;
+    transition: .5s;
+    margin: 10px 5px;
+
+    &:hover {
+      background: #f7f7f780;
+    }
+  }
+}
+
+.timer_hr {
+  margin-top: 20px;
+
+  & hr {
+    color: rgba(255, 255, 255, .2);
+    background-color: rgba(255, 255, 255, .2);
+    border: 0px none;
+    height: 1px;
+    clear: both;
+  }
+}
+
+.timer_form__input {
+  margin-top: 20px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+
+  &::placeholder {
+    color: #fff;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+  }
+}

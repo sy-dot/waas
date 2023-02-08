@@ -16,7 +16,7 @@ html {
 body {
   color: #000;
   font-family: $main-font;
-  background: #d2d2d2;
+  background: $body-back;
   overflow: auto;
   overflow-x: hidden;
 }
@@ -37,6 +37,22 @@ a:visited {
 
 a {
   transition: .2s;
+}
+
+ul.defaultCode {
+  list-style-type: none;
+  list-style-position: inside;
+
+  line-height: 2rem;
+  margin-bottom: 1rem;
+
+  & li::before {
+    content: "\2022";
+    color: #9690a2;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+  }
 }
 
 .underline {
@@ -61,6 +77,23 @@ a {
 
 }
 
+.bold {
+  font-weight: bold;
+}
+
+.semiBold {
+  font-weight: 500;
+}
+
+.code {
+  font-family: $mono-font;
+  color: #9690a2;
+  background-color: rgba(150, 144, 162, 0.08);
+  padding: 3px 6px;
+  word-break: normal;
+  border-radius: 0.25rem;
+}
+
 .content-wrapper {
   display: flex;
   justify-content: center;
@@ -69,7 +102,6 @@ a {
 }
 
 .home {
-  // margin-top: 50px;
   padding: 20px;
   border-radius: 10px;
   width: 80%;
@@ -93,7 +125,8 @@ a {
 }
 
 .gts-page {
-  background: linear-gradient(90deg, #004e92 0%, #243B55 35%, #000428 63%, #141E30 100%);
+  // background: linear-gradient(90deg, #004e92 0%, #243B55 35%, #000428 63%, #141E30 100%);
+  background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url('../../assets/img/go-to-sleep/back.jpg');
 
   & .backBtn {
     margin-top: 11px;
@@ -101,18 +134,14 @@ a {
 }
 
 .default-page {
-  // margin-top: 10px;
   padding: 0 20px 0 20px;
   border-radius: 10px;
   width: 100%;
-  // height: 85vh;
   margin-bottom: 20px;
 
   display: flex;
   justify-content: center;
   justify-items: center;
-  // align-items: center;
-  // text-align: center;
 
   & .container {
     min-width: 100%;
@@ -126,11 +155,36 @@ a {
     border: 1px solid #fff;
 
     & h2 {
+      font-size: 20px;
       margin-bottom: 10px;
     }
 
     & p {
       line-height: 1.5;
+    }
+  }
+
+  & .category {
+    position: relative;
+    display: inline-flex;
+    justify-content: end;
+    justify-items: center;
+    align-items: center;
+    float: right;
+
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &__item {
+      background: $body-back;
+      padding: 7px;
+      border-radius: 150px;
+
+      &:nth-child(2) {
+        margin-left: 6px;
+      }
     }
   }
 
@@ -184,8 +238,6 @@ a {
   display: flex;
   bottom: 10px;
 
-  // font-weight: bold;
-
   justify-content: center;
   justify-items: center;
   align-items: center;
@@ -210,5 +262,3 @@ a {
 @import 'parts/notice';
 @import 'parts/animation';
 @import 'parts/scrollbar';
-
-//// FEATURE's ////

@@ -11,7 +11,7 @@
   <script src="../../src/js/init.js" async></script>
   <script src="../../src/js/menuHandler.js" async></script>
 
-  <script src="../../src/js/app.js" type="module" defer></script>
+  <script src="../../src/js/app.js" defer></script>
 
   <!-- === AOS - ANIMATED SCROLL === -->
   <link rel="stylesheet" href="../../src/vendor/aos/aos.min.css">
@@ -51,8 +51,7 @@
     <div id="main-area">
 
       <div class="backBtn">
-        <a href="#" onclick="history.back()">
-          <!-- <a href="../../index.html"> -->
+        <a href="../../index.html">
           <div class="backBtn__back">
             <i class="fa-solid fa-caret-left"></i>
             <span>НАЗАД</span>
@@ -65,13 +64,9 @@
           <div class="container">
             <div class="row">
 
-              <!-- <div data-aos="fade-left" class="default-page__block"> -->
-              <!-- <h2>Windows</h2> -->
               <div data-aos="fade-right" class="notice danger">
                 <p class="semiBold">Активируйте только что-то одно за раз!</p>
               </div>
-              <!-- </div> -->
-
 
               <div data-aos="fade-right" data-aos-delay="300" class="default-page__block">
                 <h2>Windows</h2>
@@ -82,9 +77,8 @@
                   Исчезнет надпись «Активация Windows» в углу.
                 </p>
 
-                <a class="btn apply act-btn mt2">Активировать</a>
+                <a class="btn action act mt2" onclick="ActivateWindows()"></a>
               </div>
-
 
               <div data-aos="fade-up" data-aos-delay="600" class="default-page__block">
                 <h2>Microsoft Office</h2>
@@ -92,10 +86,12 @@
                   Разблокирует полный функционал.
                 </p>
 
-                <a class="btn apply act-btn mt2">Активировать</a>
+                <a class="btn action act mt2" onclick="ActivateOffice()"></a>
               </div>
 
-
+              <div data-aos="fade-up" data-aos-delay="800" class="notice suc">
+                <p class="semiBold">Возможно потребуется перезагрузка.</p>
+              </div>
             </div>
           </div>
         </section>
