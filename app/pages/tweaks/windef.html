@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="title">Отключить защитник Windows</title>
+
+  <link rel="stylesheet" href="../../src/styles/style.min.css">
+
+  <script src="../../src/js/init.js" async></script>
+  <script src="../../src/js/menuHandler.js" async></script>
+
+  <script src="../../src/js/app.js" defer></script>
+
+  <!-- === AOS - ANIMATED SCROLL === -->
+  <link rel="stylesheet" href="../../src/vendor/aos/aos.min.css">
+  <script src="../../src/vendor/aos/aos.min.js" defer></script>
+  <script src="../../src/vendor/aos/aosInit.js" defer></script>
+
+  <!-- === FONTAWESOME ICONS === -->
+  <link rel="stylesheet" href="../../src/vendor/fontawesome/all.min.css" defer>
+</head>
+
+<body class="no-main-page">
+
+  <div id="nav_blank"></div>
+  <div id="nav">
+    <div class="nav-menu-btn"
+      onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+      aria-label="Main Menu">
+      <svg viewBox="0 0 100 100">
+        <path class="nav-menu-btn__line"
+          d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+        <path class="nav-menu-btn__line" d="M 20,50 H 80" />
+        <path class="nav-menu-btn__line"
+          d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+      </svg>
+    </div>
+    <div id="showTitle" style="line-height: 30px;"></div>
+    <div id="togglers" style="line-height: 30px;">
+      <div id="minimizeBtn"><span>-</span></div>
+      <div id="maximizeBtn"><span></span></div>
+      <div id="closeBtn"><span>&times;</span></div>
+    </div>
+  </div>
+
+  <div id="wrapper">
+    <div id="menu" class="menu menu_disabled"></div>
+
+    <div id="main-area">
+
+      <div class="backBackBtn">
+        <a href="index.html">
+          <div class="backBackBtn__back">
+            <i class="fa-solid fa-caret-left"></i>
+            <span>НАЗАД</span>
+          </div>
+        </a>
+
+        <a href="../../index.html" class="paget">
+          <div class="backBackBtn__index">
+            <span>ГЛАВ.</span>
+            <i class="fa-sharp fa-solid fa-house"></i>
+          </div>
+        </a>
+      </div>
+
+      <div class="content-wrapper">
+        <section class="default-page">
+          <div class="container">
+            <div class="row">
+
+              <div data-aos="fade-up">
+                <div class="default-page__block">
+                  <div class="category">
+                    <span class="category__item">Система</span>
+                  </div>
+
+                  <h2>Отключение защитника Windows</h2>
+
+                  <div class="linestep mt6">
+                    <div class="linestep__item">
+                      <h4>Шаг 1</h4>
+
+                      <p>
+                        <ol>
+                          <li>Откройте <a class="underline" onclick="taskmgr()">диспетчер задач</a></li>
+                          <li>Перейдите в пункт «Автозагрузка»</li>
+                          <li>Выделите «Windows Security»</li>
+                          <li>Нажмите «Отключить»</li>
+                        </ol>
+                      </p>
+                    </div>
+
+                    <div class="linestep__item">
+                      <h4>Шаг 2</h4>
+                      <div class="notice info mb3">
+                        <p class="mb2">
+                          Если у вас домашняя редакция Windows - пропустите этот шаг.
+                        </p>
+                        <p>
+                          <a class="underline" onclick="slmgr()">Узнать какая у меня редакция
+                            Windows</a>
+                        </p>
+                      </div>
+                      <p>
+                        <ol class="mb2">
+                          <li>Откройте «<a class=" underline" onclick="gpedit()">Редактор групповой политики</a>»</li>
+                          <li>«Конфигурация компьютера» <span class="code">></span></li>
+                          <li>«Административные шаблоны» <span class="code">></span></li>
+                          <li>«Компоненты Windows» <span class="code">></span></li>
+                          <li>«Антивирусная программа Защитник Windows»</li>
+                          <li>Выставляем следующие параметры:</li>
+                        </ol>
+                        <ul>
+                          <li>
+                            <span class="italic">Выключить Microsoft Defender</span>
+                          </li>
+                          <li>
+                            <span class="code">Включено</span>
+                          </li>
+                          <li>
+                            <span class="italic">Разрешить запуск службы защиты...</span>
+                          </li>
+                          <li>
+                            <span class="code">Отключено</span>
+                          </li>
+                          <li>
+                            <span class="italic">Разрешить постоянную работу службы защиты...</span>
+                          </li>
+                          <li>
+                            <span class="code">Отключено</span>
+                          </li>
+                          <li>
+                            <span class="italic">Проверять все загруженные файлы и вложения</span>
+                          </li>
+                          <li>
+                            <span class="code">Отключено</span>
+                          </li>
+                        </ul>
+                        <ol style="counter-reset: counter 6;">
+                          <li>Откройте подраздел «MAPS»</li>
+                          <li>Отключите все кроме «Отправлять образцы»</li>
+                        </ol>
+                        <ul>
+                          <li>
+                            <span class="italic">Отправлять образцы файлов</span>
+                          </li>
+                          <li>
+                            <span class="code">Включено</span>
+                          </li>
+                          <li>
+                            <span class="italic">...если требуется дальнейший анализ</span>
+                          </li>
+                          <li>
+                            <span class="code">Никогда не отправлять</span>
+                          </li>
+                        </ul>
+                      </p>
+                    </div>
+
+                    <div class="linestep__item">
+                      <h4>Шаг 3</h4>
+                      <p>
+                        <a class="underline" onclick="DWNDisableWinDef()">Скачайте файл твика</a>.
+                      </p>
+                      <div class="notice error">
+                        <p class="bold">
+                          Не открывайте этот файл НЕ в безопасном режиме!
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="linestep__item">
+                      <h4>Шаг 4</h4>
+                      <p>Перезагрузитесь в безопасном режиме.</p>
+                      <p>Нажмите <a class="underline" onclick="ToSafeMode()">сюда</a> для перезагрузки.</p>
+                    </div>
+
+                    <div class="linestep__item mb5">
+                      <h4>Шаг 5</h4>
+                      <h5>В безопасном режиме</h5>
+                      <p>
+                        Примените твик (файл на рабочем столе).
+                      </p>
+                    </div>
+
+                    <p>
+                      После применения ваш ПК будет перезагружен в нормальное состояние.
+                    </p>
+                  </div>
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    $("#menu").load("../../parts/menu.html");
+  </script>
+
+</body>
+
+</html>

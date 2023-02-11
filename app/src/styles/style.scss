@@ -37,9 +37,28 @@ a:visited {
 
 a {
   transition: .2s;
+  cursor: pointer;
 }
 
-ul.defaultCode {
+.defaultCode {
+  &ul {
+    list-style-type: none;
+    list-style-position: inside;
+
+    line-height: 2rem;
+    margin-bottom: 1rem;
+
+    & li::before {
+      content: "\2022";
+      color: #9690a2;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+    }
+  }
+}
+
+ul {
   list-style-type: none;
   list-style-position: inside;
 
@@ -52,6 +71,23 @@ ul.defaultCode {
     font-weight: bold;
     display: inline-block;
     width: 1em;
+  }
+}
+
+ol {
+  list-style: none;
+  counter-reset: counter;
+  list-style-position: inside;
+  line-height: 2rem;
+
+  & li {
+    counter-increment: counter;
+
+    &::before {
+      content: counter(counter) ". ";
+      color: $body-back;
+      font-weight: bold;
+    }
   }
 }
 
@@ -83,6 +119,10 @@ ul.defaultCode {
 
 .semiBold {
   font-weight: 500;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .code {
@@ -126,7 +166,7 @@ ul.defaultCode {
 
 .gts-page {
   // background: linear-gradient(90deg, #004e92 0%, #243B55 35%, #000428 63%, #141E30 100%);
-  background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url('../../assets/img/go-to-sleep/back.jpg');
+  background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url('../../assets/img/back.jpg');
 
   & .backBtn {
     margin-top: 11px;
@@ -153,6 +193,16 @@ ul.defaultCode {
     padding: 20px;
     border-radius: 6px;
     border: 1px solid #fff;
+
+    &.red {
+      background: rgba(255, 184, 184, 0.3);
+      // background: rgba(255, 0, 0, 0.090);
+      border: 1px solid rgba(255, 0, 0, 0.100);
+
+      & .category__item {
+        background: #ffffff7d;
+      }
+    }
 
     & h2 {
       font-size: 20px;
@@ -260,5 +310,6 @@ ul.defaultCode {
 @import 'parts/menu';
 @import 'parts/buttons';
 @import 'parts/notice';
+@import 'parts/linestep';
 @import 'parts/animation';
 @import 'parts/scrollbar';

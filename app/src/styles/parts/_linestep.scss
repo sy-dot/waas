@@ -1,0 +1,46 @@
+.linestep {
+  // margin-top: 1rem;
+  // margin-bottom: 1rem;
+
+  &__item {
+    padding: 0 0 20px 20px;
+    margin-top: -2px;
+    border-left: 2px solid $body-back;
+    position: relative;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 150px;
+      left: -11px;
+      top: 0;
+      // background: transparent;
+      background: #fff;
+      border: 2px solid $body-back;
+    }
+
+    & h4 {
+      line-height: 22px;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    & h5 {
+      font-size: 16px;
+      background: $body-back;
+      padding: 5px 15px;
+      border-radius: 4px;
+      display: inline-block;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -64,6 +64,56 @@
           <div class="container">
             <div class="row">
 
+              <div data-aos="fade-right" class="notice error">
+                <p class="bold">
+                  Системные твики у которых нет кнопки «Отменить» - невозможно так просто отменить.
+                </p>
+              </div>
+
+              <div data-aos="fade-right" data-aos-delay="100" class="notice info">
+                <p class="semiBold">
+                  Потребуется вернуть реестр к первоначальному состоянию, что не так просто. И очень легко
+                  что-то
+                  сделать не так - что сломает систему!
+                </p>
+              </div>
+
+              <div data-aos="fade-right" data-aos-delay="200" class="notice danger">
+                <p class="semiBold">
+                  Будьте очень внимательны!
+                </p>
+              </div>
+
+              <div data-aos="fade-right" data-aos-delay="300">
+                <div class="default-page__block">
+                  <div class="category">
+                    <span class="category__item">Система</span>
+                  </div>
+
+                  <h2>Создать точку восстановления</h2>
+
+                  <p class="mb2">
+                    Нажмите <a class="underline" onclick="CreateRestorePoint()">здесь</a>, что бы создать точку
+                    восстановления.
+                  </p>
+
+                  <p class="mb2">
+                    Нажмите <a class="underline" onclick="SystemPropertiesProtection()">здесь</a>, что бы посмотреть
+                    точки восстановления.
+                  </p>
+
+                  <p>
+                    Если вы видите ошибку, нажмите <a class="underline" onclick="SystemPropertiesProtection()">здесь</a>
+                    <ul>
+                      <li>Выберите диск</li>
+                      <li>Настроить</li>
+                      <li>Вкл. защиту системы</li>
+                      <li>Макс. использование: - на ваше усмотрение</li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+
               <div data-aos="fade-right">
                 <div class="default-page__block">
                   <div class="category">
@@ -93,7 +143,7 @@
                   <h2>Макс. производительность</h2>
 
                   <p class="mb2">
-                    Добавляет схему питания: <br> «Максимальная производительность».
+                    Добавляет схему питания: «Максимальная производительность».
                   </p>
 
                   <a class="btn action apply" onclick="PowerSchemeHighPerformance()"></a>
@@ -136,6 +186,58 @@
 
                   <a class="btn action apply" onclick="DisableSmartScreen()"></a>
                   <a class="btn action unapply" onclick="EnableSmartScreen()"></a>
+                </div>
+              </div>
+
+              <div data-aos="fade-right">
+                <a href="windef.html">
+                  <div class="default-page__block red">
+                    <div class="category">
+                      <span class="category__item">Система</span>
+                    </div>
+
+                    <h2>Отключить защитник Windows</h2>
+
+                    <p class="mt4">
+                      Полностью отключает защитник Windows.
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+              <div data-aos="fade-right">
+                <div class="default-page__block red">
+                  <div class="category">
+                    <span class="category__item">Система</span>
+                  </div>
+
+                  <h2>Полное удаление «OneDrive»</h2>
+
+                  <p class="mb2">
+                    Останавливает и удаляет, а так же подчищает следы «OneDrive».
+                  </p>
+
+                  <a class="btn action apply" onclick="DeleteOneDrive()"></a>
+                </div>
+              </div>
+
+              <div data-aos="fade-right">
+                <div class="default-page__block red">
+                  <div class="category">
+                    <span class="category__item">Система</span>
+                  </div>
+
+                  <h2>Удаление «Cortana»</h2>
+
+                  <p class="mb2">
+                    Отключает «Cortana» и все дочерние процессы.
+                  </p>
+
+                  <p class="mb2">
+                    А так же удаляет приложение.
+                  </p>
+
+                  <a class="btn action apply" onclick="DeleteCortana()"></a>
                 </div>
               </div>
 

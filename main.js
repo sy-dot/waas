@@ -3,7 +3,6 @@ const { autoUpdater, AppUpdater } = require('electron-updater')
 const { getWindowSettings, saveBounds } = require('./settings');
 
 
-
 const path = require('path');
 const url = require('url');
 const ipc = ipcMain
@@ -113,6 +112,7 @@ function createWindow() {
 }
 
 
+// Не надо запускать второй экземпляр приложения
 if (!gotTheLock) {
   app.quit()
 } else {
@@ -124,7 +124,7 @@ if (!gotTheLock) {
     }
   })
     
-  // Создать окно
+  // Создать окно \ А если окна не существовало, то открыть его
   app.whenReady().then(() => {
     createWindow()
 
