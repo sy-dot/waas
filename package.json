@@ -49,7 +49,7 @@
       "packElevateHelper": true,
       "displayLanguageSelector": false,
       "language": "1049",
-      "license": "installer_license.html"
+      "license": "installer_license.rtf"
     },
     "nsisWeb": {
       "installerIcon": "icons/installer-icon.ico",
@@ -67,7 +67,7 @@
       "packElevateHelper": true,
       "displayLanguageSelector": false,
       "language": "1049",
-      "license": "installer_license.html"
+      "license": "installer_license.rtf"
     }
   }
 }

@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="../../src/vendor/fontawesome/all.min.css" defer>
 </head>
 
-<body class="no-main-page">
+<body class="no-main-page tweaks">
 
   <div id="nav_blank"></div>
   <div id="nav">
@@ -49,6 +49,10 @@
     <div id="menu" class="menu menu_disabled"></div>
 
     <div id="main-area">
+
+      <div id="scroll-to-top">
+        <a href="#scroll-to-top-btn" id="scroll-to-top-btn"></a>
+      </div>
 
       <div class="backBtn">
         <a href="../../index.html">
@@ -87,29 +91,43 @@
               <div data-aos="fade-right" data-aos-delay="300">
                 <div class="default-page__block">
                   <div class="category">
-                    <span class="category__item">Система</span>
+                    <span class="category__item">БЭКАП</span>
                   </div>
 
                   <h2>Создать точку восстановления</h2>
 
                   <p class="mb2">
-                    Нажмите <a class="underline" onclick="CreateRestorePoint()">здесь</a>, что бы создать точку
+                    Нажмите <a class="underline" onclick="CreateRestorePoint()">здесь</a>, чтобы создать точку
                     восстановления.
                   </p>
 
                   <p class="mb2">
-                    Нажмите <a class="underline" onclick="SystemPropertiesProtection()">здесь</a>, что бы посмотреть
+                    Нажмите <a class="underline" onclick="SystemPropertiesProtection()">здесь</a>, чтобы посмотреть
                     точки восстановления.
                   </p>
 
                   <p>
-                    Если вы видите ошибку, нажмите <a class="underline" onclick="SystemPropertiesProtection()">здесь</a>
+                    Если вы видите ошибку, нажмите <a class="underline" onclick="SystemPropertiesProtection()">сюда</a>
                     <ul>
                       <li>Выберите диск</li>
                       <li>Настроить</li>
                       <li>Вкл. защиту системы</li>
                       <li>Макс. использование: - на ваше усмотрение</li>
                     </ul>
+                  </p>
+                </div>
+              </div>
+
+              <div data-aos="fade-right">
+                <div class="default-page__block">
+                  <div class="category">
+                    <span class="category__item">БЭКАП</span>
+                  </div>
+
+                  <h2>Создать бэкап реестра</h2>
+
+                  <p>
+                    Нажмите <a class="underline" onclick="CreateBackupRegistry()">здесь</a>, чтобы создать бэкап.
                   </p>
                 </div>
               </div>
@@ -238,6 +256,72 @@
                   </p>
 
                   <a class="btn action apply" onclick="DeleteCortana()"></a>
+                </div>
+              </div>
+
+              <div data-aos="fade-right">
+                <div class="default-page__block">
+                  <div class="category">
+                    <span class="category__item">Система</span>
+                  </div>
+
+                  <h2>Отключить историю:</h2>
+
+                  <p class="mb2">
+                    <ul>
+                      <li>Недавно используемые файлы</li>
+                      <li>Недавно открытые файлы Пуск</li>
+                      <li>Часто используемые файлы</li>
+                      <li>История «Выполнить» <span class="code">win+r</span></li>
+                    </ul>
+                  </p>
+
+                  <a class="btn action apply" onclick="DisableHistoryQuickPanel()"></a>
+                  <a class="btn action unapply" onclick="EnableHistoryQuickPanel()"></a>
+                </div>
+              </div>
+
+              <div data-aos="fade-right">
+                <div class="default-page__block">
+                  <div class="category">
+                    <span class="category__item">Конфид.</span>
+                  </div>
+
+                  <h2>Отключить рекламу</h2>
+
+                  <p class="mb2">
+                    Отключает целевую\релевантную рекламу и рекламный идентификатор.
+                  </p>
+
+                  <a class="btn action apply" onclick="DisableAds()"></a>
+                </div>
+              </div>
+
+              <div data-aos="fade-right">
+                <div class="default-page__block">
+                  <div class="category">
+                    <span class="category__item">Оптимизация</span>
+                  </div>
+
+                  <h2>Сжать Windows</h2>
+
+                  <p class="mb2">
+                    Сжимает системные файлы.
+                  </p>
+
+                  <p class="mb2">
+                    Нажмите <a class="underline" onclick="CheckIsCompactWindows()">сюда</a>, чтобы проверить сжата ли
+                    система.
+                  </p>
+
+                  <div class="notice info mb6">
+                    <p>
+                      Процесс может занять весьма длительное время.
+                    </p>
+                  </div>
+
+                  <a class="btn action apply" onclick="CompactWindows()"></a>
+                  <a class="btn action unapply" onclick="UnCompactWindows()"></a>
                 </div>
               </div>
 

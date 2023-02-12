@@ -1,0 +1,45 @@
+#scroll-to-top {
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  bottom: 5vh;
+  z-index: 9999;
+
+  & #scroll-to-top-btn {
+    background: #1c1c1c7f;
+    width: 37px;
+    height: 37px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    transition: .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+
+    &::after {
+      font-family: "Font Awesome 6 Pro";
+      content: "\f106";
+      font-weight: 900;
+      font-style: normal;
+      font-size: 2em;
+      line-height: 38px;
+      color: #fff;
+    }
+
+    &:hover {
+      background: #363636ca;
+    }
+
+    &:active {
+      background-color: #555;
+    }
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

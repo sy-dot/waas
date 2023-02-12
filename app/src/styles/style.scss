@@ -267,6 +267,10 @@ ol {
   }
 }
 
+.tweaks .default-page:last-child {
+  margin-bottom: 10vh;
+}
+
 .no-main-page .backBtn,
 .no-main-page .backBackBtn {
   position: relative;
@@ -304,6 +308,14 @@ ol {
 
   font-size: 10px;
   bottom: -6.5vh;
+
+  & i {
+    transition: .2s;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.695);
+    }
+  }
 }
 
 //// PART's ////
@@ -312,4 +324,5 @@ ol {
 @import 'parts/notice';
 @import 'parts/linestep';
 @import 'parts/animation';
+@import 'parts/scroll-to-top';
 @import 'parts/scrollbar';

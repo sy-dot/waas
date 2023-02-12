@@ -59,9 +59,28 @@ $('a').attr('draggable', false);
 $('img').attr('draggable', false);
 
 
+//// SCROLL TO TOP ////
+var scrollToTopBTN = $('#scroll-to-top-btn');
+
+$(window).scroll(function () {
+  if ($(window).scrollTop() > 500) {
+    scrollToTopBTN.addClass('show');
+  } else {
+    scrollToTopBTN.removeClass('show');
+  }
+});
+
+scrollToTopBTN.on('click', function (e) {
+  e.preventDefault();
+  $('html, body').animate({
+    scrollTop: 0
+  }, '1000');
+});
+
+
 //// CMD COMMANDS ////
 let i = ' & ';
-let eo = '@echo off'
+let eoff = '@echo off'
 let enc = 'chcp 65001'
 let sp = ' '
 //// TWEAKS
@@ -155,6 +174,7 @@ function DeleteOneDrive() {
 }
 
 
+// Удалить Cortana
 function DeleteCortana() {
   execute('start powershell "Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage');
   let c0 = 'start "Отключение Cortana" cmd.exe /k "@echo off & chcp 65001 & title Отключение Cortana' + i;
@@ -174,6 +194,72 @@ function DeleteCortana() {
   setTimeout(function () {
     execute(c0 + c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11 + c12 + c13);
   }, 500);
+}
+
+
+// Отключить историю панель быстрого доступа\run
+function DisableHistoryQuickPanel() {
+  execute('reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer" /v "ShowFrequent" /t REG_DWORD /d "0" /f');
+  execute('reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer" /v "ShowRecent" /t REG_DWORD /d "0" /f');
+  execute('reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced" /v "Start_TrackDocs" /t REG_DWORD /d "0" /f');
+  execute('reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced" /v "Start_TrackProgs" /t REG_DWORD /d "0" /f');
+  setTimeout(function () {
+    execute('start "Готово" cmd.exe /k "' + eo + i + enc + i + 'echo Готово & pause & exit"');
+  }, 500)
+}
+
+function EnableHistoryQuickPanel() {
+  execute('reg delete "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer" /v "ShowFrequent" /f');
+  execute('reg delete "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer" /v "ShowRecent" /f');
+  execute('reg delete "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced" /v "Start_TrackDocs" /f');
+  execute('reg delete "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced" /v "Start_TrackProgs" /f');
+  setTimeout(function () {
+    execute('start "Готово" cmd.exe /k "' + eo + i + enc + i + 'echo Готово & pause & exit"');
+  }, 500)
+}
+
+
+// Отключить рекламу
+function DisableAds() {
+  let start = 'start cmd.exe /k "' + eoff + i + enc + i;
+  let c1 = 'reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo" /v "Enabled" /t REG_DWORD /d "0" /f' + i;
+  let c2 = 'reg add "HKLM\\SOFTWARE\\Microsoft\\PolicyManager\\current\\device\\Bluetooth" /v "AllowAdvertising" /t REG_DWORD /d "0" /f' + i;
+  let end = 'echo Готово & pause & exit"';
+  execute(start+c1+c2+end);
+}
+
+
+// Сжать\Очистить Windows
+function CheckIsCompactWindows() {
+  execute('start cmd.exe /k "compact /CompactOS:query & pause & exit"')
+}
+
+function CompactWindows() {
+  let start = 'start "Сжатие" cmd.exe /k "' + eoff + i + enc + i;
+  let c1 = 'echo Операция займет некоторое время... & echo.' + i;
+  let c2 = 'compact /CompactOS:always';
+  let end = '"';
+  execute(start+c1+c2+end);
+}
+
+function UnCompactWindows() {
+  let start = 'start "Back to the Future" cmd.exe /k "' + eoff + i + enc + i;
+  let c1 = 'echo Операция займет некоторое время... & echo.' + i;
+  let c2 = 'compact /CompactOS:never';
+  let end = '"';
+  execute(start+c1+c2+end);
+}
+
+function DismStartComponentCleanup() {
+  execute('start cmd.exe /k "dism.exe /online /Cleanup-Image /StartComponentCleanup"');
+}
+
+function CleanUp() {
+  let start = 'start cmd.exe /k "' + eoff + i + enc + i;
+  let c1 = 'del %TEMP%\*.* /s /q' + i;
+  let c2 = 'cleanmgr /sagerun /d%SystemDrive%';
+  let end = '"'
+  execute(start+c1+c2+end);
 }
 
 
@@ -200,6 +286,19 @@ function CreateRestorePoint() {
 
 function SystemPropertiesProtection() {
   execute('SystemPropertiesProtection');
+}
+
+function CreateBackupRegistry() {
+  let start = 'start cmd.exe /k "@echo off' + i + enc + i;
+  let c0 = 'echo Это займет некоторое время... & echo.' + i;
+  let c1 = 'mkdir "%UserProfile%\\Desktop\\Registry.Backup.%date:~-7,2%.%date:~-10,2%.%date:~-4,4%"' + i;
+  let c2 = 'reg export HKCR "%UserProfile%\\Desktop\\Registry.Backup.%date:~-7,2%.%date:~-10,2%.%date:~-4,4%\\HKCR.reg" /y' + i;
+  let c3 = 'reg export HKCU "%UserProfile%\\Desktop\\Registry.Backup.%date:~-7,2%.%date:~-10,2%.%date:~-4,4%\\HKCU.reg" /y' + i;
+  let c4 = 'reg export HKLM "%UserProfile%\\Desktop\\Registry.Backup.%date:~-7,2%.%date:~-10,2%.%date:~-4,4%\\HKLM.reg" /y' + i;
+  let c5 = 'reg export HKU "%UserProfile%\\Desktop\\Registry.Backup.%date:~-7,2%.%date:~-10,2%.%date:~-4,4%\\HKU.reg" /y' + i;
+  let c6 = 'reg export HKCC "%UserProfile%\\Desktop\\Registry.Backup.%date:~-7,2%.%date:~-10,2%.%date:~-4,4%\\HKCC.reg" /y' + i;
+  let end = 'echo Готово & pause & exit"'
+  execute(start+c0+c1+c2+c3+c4+c5+c6+end);
 }
 
 
