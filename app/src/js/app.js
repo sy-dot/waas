@@ -204,7 +204,7 @@ function DisableHistoryQuickPanel() {
   execute('reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced" /v "Start_TrackDocs" /t REG_DWORD /d "0" /f');
   execute('reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced" /v "Start_TrackProgs" /t REG_DWORD /d "0" /f');
   setTimeout(function () {
-    execute('start "Готово" cmd.exe /k "' + eo + i + enc + i + 'echo Готово & pause & exit"');
+    execute('start "Готово" cmd.exe /k "' + eoff + i + enc + i + 'echo Готово & pause & exit"');
   }, 500)
 }
 
@@ -214,7 +214,7 @@ function EnableHistoryQuickPanel() {
   execute('reg delete "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced" /v "Start_TrackDocs" /f');
   execute('reg delete "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced" /v "Start_TrackProgs" /f');
   setTimeout(function () {
-    execute('start "Готово" cmd.exe /k "' + eo + i + enc + i + 'echo Готово & pause & exit"');
+    execute('start "Готово" cmd.exe /k "' + eoff + i + enc + i + 'echo Готово & pause & exit"');
   }, 500)
 }
 
@@ -305,22 +305,52 @@ function CreateBackupRegistry() {
 //// RUNTIME COMPONENT's
 // Visual C++
 function InstallVisualCPlusPlus() {
-  execute('mkdir "%TEMP%\\WAAS_FILES" & cd "%TEMP%\\WAAS_FILES" & curl -L -o visuals.zip https://github.com/sy-dot/waas-files/raw/main/Runtime-Components/visuals_NOV-2022-JUN-2010.zip & tar -xf visuals.zip & del /f visuals.zip & start cmd.exe /k "visuals\\# INSTALL_ALL.bat" & exit');
+  let c0 = 'mkdir "%TEMP%\\WAAS_FILES" & cd "%TEMP%\\WAAS_FILES"' + i;
+  let c1 = 'curl -L -o visuals.zip https://github.com/sy-dot/waas-files/raw/main/Runtime-Components/visuals_NOV-2022-JUN-2010.zip' + i;
+  let c2 = 'tar -xf visuals.zip & del /f visuals.zip' + i;
+  let c3 = 'start cmd.exe /k "visuals\\# INSTALL_ALL.bat" & exit'
+  execute(c0+c1+c2+c3);
 }
 
 // DirectX
 function InstallDirectX() {
-  execute('mkdir "%TEMP%\\WAAS_FILES" & cd "%TEMP%\\WAAS_FILES" & curl -L -o directx.zip https://github.com/sy-dot/waas-files/raw/main/Runtime-Components/directx_DEC-2021-JUN-2010.zip & tar -xf directx.zip & del /f directx.zip & start cmd.exe /k "directx\\# INSTALL_ALL.bat" & exit');
+  let c0 = 'mkdir "%TEMP%\\WAAS_FILES" & cd "%TEMP%\\WAAS_FILES"' + i;
+  let c1 = 'curl -L -o directx.zip https://github.com/sy-dot/waas-files/raw/main/Runtime-Components/directx_DEC-2021-JUN-2010.zip' + i;
+  let c2 = 'tar -xf directx.zip & del /f directx.zip' + i;
+  let c3 = 'start cmd.exe /k "directx\\# INSTALL_ALL.bat" & exit'
+  execute(c0+c1+c2+c3);
 }
 
 
 //// Активация
 // Активировать Windows
 function ActivateWindows() {
-  execute('mkdir "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & attrib +h "%UserProfile%\\Desktop\\.WAAS-FILES.cache" /s /d & cd "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & curl -L -o aact.zip https://github.com/sy-dot/waas-files/raw/main/Act/AAct.v4.2.8.zip & tar -xf aact.zip & del /f aact.zip & cd aact & start "Активация" cmd.exe /k "echo Активация... & AAct_x64.exe /win=act /wingvlk & cd ../../ & rd /s /q "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & title Готово & echo. & echo Готово, желательна перезагрузка. & echo Нажмите любую клавишу для перезагрузки, или закройте это окно. & pause & shutdown /r /t 1"');
+  let c0 = 'mkdir "%UserProfile%\\Desktop\\.WAAS-FILES.cache"' + i;
+  let c1 = 'attrib +h "%UserProfile%\\Desktop\\.WAAS-FILES.cache" /s /d' + i;
+  let c2 = 'cd "%UserProfile%\\Desktop\\.WAAS-FILES.cache"' + i;
+  let c3 = 'curl -L -o aact.zip https://github.com/sy-dot/waas-files/raw/main/Act/AAct.v4.2.8.zip' + i;
+  let c4 = 'tar -xf aact.zip & del /f aact.zip & cd aact' + i;
+  let c5 = 'start "Активация" cmd.exe /k "' + eoff + i + enc + i;
+  let c6 = 'echo Активация...' + i;
+  let c7 = 'AAct_x64.exe /win=act /wingvlk' + i;
+  let c8 = 'cd ../../ & rd /s /q "%UserProfile%\\Desktop\\.WAAS-FILES.cache"' + i;
+  let c9 = 'title Готово & echo. & echo Готово, желательна перезагрузка. & echo Нажмите любую клавишу для перезагрузки, или закройте это окно. & pause & shutdown /r /t 1"';
+  execute(c0+c1+c2+c3+c4+c5+c6+c7+c8+c9);
+  // execute('mkdir "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & attrib +h "%UserProfile%\\Desktop\\.WAAS-FILES.cache" /s /d & cd "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & curl -L -o aact.zip https://github.com/sy-dot/waas-files/raw/main/Act/AAct.v4.2.8.zip & tar -xf aact.zip & del /f aact.zip & cd aact & start "Активация" cmd.exe /k "echo Активация... & AAct_x64.exe /win=act /wingvlk & cd ../../ & rd /s /q "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & title Готово & echo. & echo Готово, желательна перезагрузка. & echo Нажмите любую клавишу для перезагрузки, или закройте это окно. & pause & shutdown /r /t 1"');
 }
 
 // Активировать Офис
 function ActivateOffice() {
-  execute('mkdir "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & attrib +h "%UserProfile%\\Desktop\\.WAAS-FILES.cache" /s /d & cd "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & curl -L -o aact.zip https://github.com/sy-dot/waas-files/raw/main/Act/AAct.v4.2.8.zip & tar -xf aact.zip & del /f aact.zip & cd aact & start "Активация" cmd.exe /k "echo Активация... & AAct_x64.exe /ofs=act /ofsgvlk & cd ../../ & rd /s /q "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & title Готово & echo. & echo Готово, желательна перезагрузка. & echo Нажмите любую клавишу для перезагрузки, или закройте это окно. & pause & shutdown /r /t 1"');
+  let c0 = 'mkdir "%UserProfile%\\Desktop\\.WAAS-FILES.cache"' + i;
+  let c1 = 'attrib +h "%UserProfile%\\Desktop\\.WAAS-FILES.cache" /s /d' + i;
+  let c2 = 'cd "%UserProfile%\\Desktop\\.WAAS-FILES.cache"' + i;
+  let c3 = 'curl -L -o aact.zip https://github.com/sy-dot/waas-files/raw/main/Act/AAct.v4.2.8.zip' + i;
+  let c4 = 'tar -xf aact.zip & del /f aact.zip & cd aact' + i;
+  let c5 = 'start "Активация" cmd.exe /k "' + eoff + i + enc + i;
+  let c6 = 'echo Активация...' + i;
+  let c7 = 'AAct_x64.exe /ofs=act /ofsgvlk' + i;
+  let c8 = 'cd ../../ & rd /s /q "%UserProfile%\\Desktop\\.WAAS-FILES.cache"' + i;
+  let c9 = 'title Готово & echo. & echo Готово, желательна перезагрузка. & echo Нажмите любую клавишу для перезагрузки, или закройте это окно. & pause & shutdown /r /t 1"';
+  execute(c0+c1+c2+c3+c4+c5+c6+c7+c8+c9);
+  // execute('mkdir "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & attrib +h "%UserProfile%\\Desktop\\.WAAS-FILES.cache" /s /d & cd "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & curl -L -o aact.zip https://github.com/sy-dot/waas-files/raw/main/Act/AAct.v4.2.8.zip & tar -xf aact.zip & del /f aact.zip & cd aact & start "Активация" cmd.exe /k "echo Активация... & AAct_x64.exe /ofs=act /ofsgvlk & cd ../../ & rd /s /q "%UserProfile%\\Desktop\\.WAAS-FILES.cache" & title Готово & echo. & echo Готово, желательна перезагрузка. & echo Нажмите любую клавишу для перезагрузки, или закройте это окно. & pause & shutdown /r /t 1"');
 }
