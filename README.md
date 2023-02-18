@@ -1,5 +1,4 @@
-# WAAS
- Windows Assistant
+# Windows Assistant - WAAS
 
 ![Превью](preview.jpg)
 
